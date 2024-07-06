@@ -2,7 +2,8 @@ import SelectCountry from "@/app/_components/SelectCountry";
 
 export default function Page() {
   // CHANGE
-  const countryFlag = "pt.jpg";
+  const countryFlag =
+    "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg";
   const nationality = "portugal";
 
   return (
