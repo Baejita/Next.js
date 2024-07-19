@@ -6,6 +6,7 @@ async function CabinList() {
   noStore();
   // การใส่ตรงนี้ดีกว่า ใส่การตรวจสอบ revalidate ที่หน้าเพจ cabin โดยตรงเพราะตรงนี้เป็ฯ แบบ dynamic ล้วน ๆ
   const cabins = await getCabins();
+
   if (!cabins.length) return null;
 
   return (
