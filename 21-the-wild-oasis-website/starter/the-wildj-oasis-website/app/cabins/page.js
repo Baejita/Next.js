@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import CabinList from "../_components/CabinList";
 import Spinner from "../_components/Spinner";
 
+//export const revalidate = 3600; //ปรับเลขตรงนี้เป็นหน่วย มิลลิวินาที ให้เพจ รีเฟช ข้อมูลตอนเราอัพเดทใน supabase
+
 export const metadata = {
   title: "Cabins",
 };
