@@ -2,23 +2,16 @@ import { getCountries } from "@/app/_library/data-service";
 
 // Async function to fetch countries and build the SelectCountry component
 async function SelectCountry({ defaultCountry, name, id, className }) {
-  let countries = [];
-  try {
-    countries = await getCountries(); // Fetch countries asynchronously
-  } catch (error) {
-    console.error("Failed to fetch countries:", error);
-    // Handle error or provide fallback if countries cannot be fetched
-  }
-
-  // Find the flag for the default country
+  const countries = await getCountries();
   const flag =
-    countries.find((country) => country.name === defaultCountry)?.flag || "";
+    countries.find((country) => country.name === defaultCountry)?.flag ?? "";
 
   return (
     <select
       name={name}
       id={id}
-      defaultValue={`${defaultCountry}%${flag}`} // Encode default value
+      // Here we use a trick to encode BOTH the country name and the flag into the value. Then we split them up again later in the server action
+      defaultValue={`${defaultCountry}%${flag}`}
       className={className}
     >
       <option value="">Select country...</option>
