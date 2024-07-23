@@ -2,10 +2,13 @@
 
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
+import { revalidate, revalidatePath } from "next/cache"; // Assuming revalidate is correctly imported from next/cache
 
 export async function updateProfile(formData) {
   const session = await auth();
-  if (!session) throw new Error("You must be logged in");
+  if (!session) {
+    throw new Error("You must be logged in");
+  }
 
   const nationalID = formData.get("nationalID");
   const nationalityValue = formData.get("nationality");
@@ -18,8 +21,9 @@ export async function updateProfile(formData) {
 
   let nationalIdRegex = /^[a-zA-Z0-9]{6,12}$/;
 
-  if (!nationalIdRegex.test(nationalID))
-    throw new Error("please provide a valid nationalId");
+  if (!nationalIdRegex.test(nationalID)) {
+    throw new Error("Please provide a valid national ID");
+  }
 
   const updateData = { nationality, countryFlag, nationalID };
 
@@ -31,7 +35,9 @@ export async function updateProfile(formData) {
   if (error) {
     throw new Error("Guest could not be updated");
   }
-  return data;
+
+  // Perform cache revalidation after successful update
+  revalidatePath("/account/profile");
 }
 
 export async function signInAction() {
