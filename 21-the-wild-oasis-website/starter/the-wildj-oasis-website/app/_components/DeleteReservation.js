@@ -1,17 +1,16 @@
 "use client";
 import { TrashIcon } from "@heroicons/react/24/solid";
-import { deleteReservation } from "../_library/actions";
 import { useTransition } from "react";
 import Spinner from "./Spinner";
 import SpinnerMini from "./SpinnerMini";
 
-function DeleteReservation({ bookingId }) {
+function DeleteReservation({ bookingId, onDelete }) {
   const [isPending, startTransition] = useTransition();
   //คือการที่เราจะเชคว่ากำลังโหลดหรือไม่ ถ้าโหลดอยู่เราจะทำเงื่อไขให้หมุนสปินเนอร์์
   function handleDelete() {
     if (confirm("Are you sure you want to delete this reservation?"))
       //สร้างเงื่อนไขให้มีเด้นตรงหน้าต่างหน้าจอ ให้กด ตกลง
-      startTransition(() => deleteReservation(bookingId));
+      startTransition(() => onDelete(bookingId));
   }
   return (
     <button
