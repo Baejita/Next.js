@@ -17,7 +17,7 @@ const myFont = localfont({
 
 import { Kanit } from "next/font/google";
 import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+
 import "./globals.css";
 
 const kanit = Kanit({
@@ -33,7 +33,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={myFont.className}>
+      <body className={`${myFont.className} bg-primary-800`}>
         <Header />
         {children}
       </body>

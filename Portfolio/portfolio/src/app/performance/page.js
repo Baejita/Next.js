@@ -1,5 +1,7 @@
 function page() {
-  return <div className=" font-black">this is performance page</div>;
+  return (
+    <div className=" font-black text-primary-600">this is performance page</div>
+  );
 }
 
 export default page;
