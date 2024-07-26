@@ -7,13 +7,15 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    fontFamily: {
-      sans: "Roboto Mono, monospace",
-    },
     extend: {
       fontSize: {
         huge: ["80rem", { lineHeight: "1" }],
         medium: ["60rem", { lineHeight: "1" }],
+      },
+      fontWeight: {
+        thin: 300,
+        normal: 400,
+        bold: 700,
       },
       colors: {
         primary: {

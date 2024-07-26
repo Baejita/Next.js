@@ -6,18 +6,18 @@ export default async function Navigation() {
       <ul className="flex gap-16 items-center">
         <li>
           <Link
-            href="/cabins"
+            href="/performance"
             className="hover:text-accent-400 transition-colors"
           >
-            Cabins
+            ผลการดำเนินงาน
           </Link>
         </li>
         <li>
           <Link
-            href="/about"
+            href="/สมัครสมาชิกพรรค"
             className="hover:text-accent-400 transition-colors"
           >
-            About
+            สมัครสมาชิกพรรค
           </Link>
         </li>
         <li>
