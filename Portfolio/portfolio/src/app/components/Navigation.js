@@ -5,6 +5,11 @@ export default async function Navigation() {
     <nav className="z-10 text-xl text-primary-200">
       <ul className="flex gap-16 items-center">
         <li>
+          <Link href="/" className="hover:text-accent-400 transition-colors">
+            หน้าหลัก
+          </Link>
+        </li>
+        <li>
           <Link
             href="/performance"
             className="hover:text-accent-400 transition-colors"
@@ -12,21 +17,23 @@ export default async function Navigation() {
             ผลการดำเนินงาน
           </Link>
         </li>
+
         <li>
           <Link
-            href="/สมัครสมาชิกพรรค"
-            className="hover:text-accent-400 transition-colors"
-          >
-            สมัครสมาชิกพรรค
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/account"
+            href="/applyforMember"
             className="hover:text-accent-400 transition-colors flex items-center gap-4"
           >
             <img className=" h-8 rounded-full  " referrerPolicy="no-referrer" />
-            <span>Guest area</span>
+            <span>สมัครสมาชิกพรรค</span>
+          </Link>
+        </li>
+
+        <li>
+          <Link
+            href="/asaMFP"
+            className="hover:text-accent-400 transition-colors"
+          >
+            อาสาก้าวไกลอยุธยา
           </Link>
         </li>
       </ul>
