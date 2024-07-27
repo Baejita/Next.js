@@ -13,7 +13,7 @@ function Logo() {
         alt="The Wild Oasis logo"
         quality={100}
       />
-      <span className="text-xl font-medium text-primary-100">พรรคก้าวไกล</span>
+      <span className="text-xl font-medium text-primary-500">พรรคก้าวไกล</span>
     </Link>
   );
 }

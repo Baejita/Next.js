@@ -19,6 +19,7 @@ const myFont = localfont({
 import Header from "./components/Header";
 
 import "./globals.css";
+import HeroSection from "./components/HeroSection";
 
 // const kanit = Kanit({
 //   subsets: ["thai"],
@@ -33,9 +34,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${myFont.className} bg-primary-100`}>
+      <body className={`${myFont.className} bg-slate-50`}>
         <Header />
-        {children}
+        <main className="max-w-7xl  mx-auto w-full">{children}</main>
       </body>
     </html>
   );

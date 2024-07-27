@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        "3xl": "0 35px 35px rgba(0, 0, 0, 0.25)",
+        "4xl": [
+          "0 35px 35px rgba(0, 0, 0, 0.25)",
+          "0 45px 65px rgba(0, 0, 0, 0.15)",
+        ],
+      },
       fontSize: {
         huge: ["80rem", { lineHeight: "1" }],
         medium: ["60rem", { lineHeight: "1" }],
@@ -19,7 +26,7 @@ module.exports = {
       },
       colors: {
         primary: {
-          50: "#FFF0E6",
+          50: "#FFF9F5",
           100: "#FFD2B3",
           200: "#FFB580",
           300: "#FFA666",
@@ -41,6 +48,11 @@ module.exports = {
           800: "#001D34",
           900: "#001323",
           950: "#000A11",
+        },
+        tertiary: {
+          300: "#FCA24E",
+          400: "#FE8F27",
+          500: "#FF8900",
         },
         accent: {
           50: "#FAF5F0",
