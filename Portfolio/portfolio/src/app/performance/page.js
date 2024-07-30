@@ -2,61 +2,65 @@ import Image from "next/image";
 import Link from "next/link";
 import doubleQ from "/src/app/image/quote_4990659.png";
 import Card from "../components/Card";
-import  { getPerformResult, getTest} from "../services/apiPerformance";
+import { getPerformResult, getTest } from "../services/apiPerformance";
 
-export const  revalidate = 0; //ทำให้รีเฟชตลอด
-export default async function Page({data}) {
-const districts = await getPerformResult();
-//const test = await getTest()
+export const revalidate = 0; //ทำให้รีเฟชตลอด
+export default async function Page({ data }) {
+  const districts = await getPerformResult();
+  //const test = await getTest()
 
-const test = await getTest()
+  const test = await getTest();
 
   return (
-    <><div>
-       {//test การใส่รูปดึงรูป
-    }
-      <ul> 
-        {test.map(test => (<>
-          <p>{test.fullName}</p>
-          <Image src={test.image}
-          
-          alt="test"
-          width={200}
-          height={200}
-          className="object-cover border-r border-primary-800" />
-          </>
-        ))}
-      </ul>
-    </div>
-   
+    <>
       <div>
-        
-      <h1>Data from Supabase</h1>
-      <ul>
+        {
+          //test การใส่รูปดึงรูป
+        }
+        <ul key={test.id}>
+          {test.map((test) => (
+            <>
+              <p key={test.id}>{test.fullName}</p>
+              <Image
+                src={test.image}
+                alt="test"
+                width={200}
+                height={200}
+                key={test.id}
+                className="object-cover border-r border-primary-800"
+              />
+            </>
+          ))}
+        </ul>
+      </div>
 
-        {districts.map((item) => (
-          <div className="py-2 flex flex-row gap-2">
-         <h1>{item.id} </h1>
-         <div>
-          <p>{item.typeOf}</p>
-          <p>{item.date}</p>
-          </div>
-         
-         <div>
-         <h1>{item.mainTopic}</h1>
-         <p>{item.details}</p>
-         <div><p>{item.subDistrict}</p>
-         <p>{item.district}</p>
-         <p>{item.result}</p></div>
-         {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
-         </div>
-         
-         
-         </div>
+      <div>
+        <h1>Data from Supabase</h1>
+        <ul>
+          {districts.map((item) => (
+            <div key={item.id} className="py-4 flex flex-row gap-2 ">
+              <h1 key={item.id}>{item.id} </h1>
+              <div>
+                <p key={item.id}>{item.typeOf}</p>
+                <p key={item.id}>{item.date}</p>
+              </div>
 
-        ))}
-      </ul>
-    </div>
+              <div key={item.id}>
+                <h1 key={item.id}>{item.mainTopic}</h1>
+                <p key={item.id}>{item.details}</p>
+                <div key={item.id}>
+                  <p key={item.id}>{item.subDistrict}</p>
+                  <p key={item.id}>{item.district}</p>
+                  <p key={item.id} className="bg-green-400 w-60">
+                    {item.result}
+                  </p>
+                </div>
+                {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
+              </div>
+            </div>
+          ))}
+        </ul>
+      </div>
 
       <div className="bg-white px-40 py-20 ">
         <h1 className="text-4xl mb-5 mt-5 text-secondary-400 font-semibold">
