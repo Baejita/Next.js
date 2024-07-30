@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 function page() {
+  
   return (
     <>
       <div>This is all result ผลการดำเนินงาน</div>

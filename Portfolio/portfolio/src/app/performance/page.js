@@ -2,23 +2,62 @@ import Image from "next/image";
 import Link from "next/link";
 import doubleQ from "/src/app/image/quote_4990659.png";
 import Card from "../components/Card";
-import { getDistrict, getPerformance } from "../services/apiPerformance";
-import District from "../components/District";
-import { getTest } from "../services/apiTest";
+import  { getPerformResult, getTest} from "../services/apiPerformance";
 
-export default async function Page() {
-  //const districts = await getDistrict();
-  const districts = await getDistrict();
+export const  revalidate = 0; //ทำให้รีเฟชตลอด
+export default async function Page({data}) {
+const districts = await getPerformResult();
+//const test = await getTest()
+
+const test = await getTest()
 
   return (
-    <>
-      <District districts={districts} />
-      {/* <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 xl:gap-14">
-        {districts.map((district) => (
-          <District district={district} key={district.id} />
+    <><div>
+       {//test การใส่รูปดึงรูป
+    }
+      <ul> 
+        {test.map(test => (<>
+          <p>{test.fullName}</p>
+          <Image src={test.image}
+          
+          alt="test"
+          width={200}
+          height={200}
+          className="object-cover border-r border-primary-800" />
+          </>
         ))}
-      </div> */}
-      {/* <District districts={districts} /> */}
+      </ul>
+    </div>
+   
+      <div>
+        
+      <h1>Data from Supabase</h1>
+      <ul>
+
+        {districts.map((item) => (
+          <div className="py-2 flex flex-row gap-2">
+         <h1>{item.id} </h1>
+         <div>
+          <p>{item.typeOf}</p>
+          <p>{item.date}</p>
+          </div>
+         
+         <div>
+         <h1>{item.mainTopic}</h1>
+         <p>{item.details}</p>
+         <div><p>{item.subDistrict}</p>
+         <p>{item.district}</p>
+         <p>{item.result}</p></div>
+         {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
+         </div>
+         
+         
+         </div>
+
+        ))}
+      </ul>
+    </div>
+
       <div className="bg-white px-40 py-20 ">
         <h1 className="text-4xl mb-5 mt-5 text-secondary-400 font-semibold">
           ผลการดำเนินงาน

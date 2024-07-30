@@ -13,18 +13,34 @@ export async function getPerformance(id) {
   return data;
 }
 
-export async function getDistrict() {
+export async function getPerformResult() {
   const { data, error } = await supabase
-    .from("performance")
-    .select("id,typeOf,date,district,subDistrict,mainTopic")
+    .from("performResult")
+    .select("id,typeOf,date,district,subDistrict,mainTopic,details,image,result")
     .order("id");
 
   if (error) {
     console.error(error);
-    throw new Error("Cabins could not be loaded");
+    throw new Error("PerformResult could not be loaded");
   }
 
   return data;
+  
+}
+
+export async function getTest() {
+  const { data, error } = await supabase
+    .from("Test")
+    .select("fullName,number,image")
+    .order("id");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Test could not be loaded");
+  }
+
+  return data;
+  
 }
 
 // export const getCabins = async function () {
