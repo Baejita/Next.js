@@ -13,14 +13,14 @@ export default async function Page({ data }) {
 
   return (
     <>
-      <div>
+      {/* <div>
         {
           //test การใส่รูปดึงรูป
         }
-        <ul key={test.id}>
+        {/* <ul key={test.id}>
           {test.map((test) => (
             <>
-              <p key={test.id}>{test.fullName}</p>
+              <p key={test.index}>{test.fullName}</p>
               <Image
                 src={test.image}
                 alt="test"
@@ -32,30 +32,47 @@ export default async function Page({ data }) {
             </>
           ))}
         </ul>
+      </div> */}
+      <div>
+        <Image
+          src="https://gkywegpqvqbcrhpfosqh.supabase.co/storage/v1/object/public/imagePerform/24.png"
+          alt="image"
+          width={450}
+          height={300}
+        />
       </div>
-
       <div>
         <h1>Data from Supabase</h1>
         <ul>
           {districts.map((item) => (
-            <div key={item.id} className="py-4 flex flex-row gap-2 ">
-              <h1 key={item.id}>{item.id} </h1>
-              <div>
-                <p key={item.id}>{item.typeOf}</p>
-                <p key={item.id}>{item.date}</p>
-              </div>
-
-              <div key={item.id}>
-                <h1 key={item.id}>{item.mainTopic}</h1>
-                <p key={item.id}>{item.details}</p>
-                <div key={item.id}>
-                  <p key={item.id}>{item.subDistrict}</p>
-                  <p key={item.id}>{item.district}</p>
-                  <p key={item.id} className="bg-green-400 w-60">
-                    {item.result}
-                  </p>
+            <div key={item.id}>
+              <div className="py-4 flex flex-row gap-2 ">
+                <h1>{item.id} </h1>
+                <div className="">
+                  <p>{item.typeOf}</p>
+                  <p>{item.date}</p>
                 </div>
-                {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
+
+                <div>
+                  {/* {item.image === null ? (
+                    ""
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt="image"
+                      width={200}
+                      height={200}
+                    />
+                  )} */}
+                  <h1>{item.mainTopic}</h1>
+                  <p>{item.details}</p>
+                  <div>
+                    <p>{item.subDistrict}</p>
+                    <p>{item.district}</p>
+                    <p className="bg-green-400 w-60">{item.result}</p>
+                  </div>
+                  {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
+                </div>
               </div>
             </div>
           ))}
