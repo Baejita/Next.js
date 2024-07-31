@@ -13,7 +13,8 @@ export default async function Page({ data }) {
 
   return (
     <>
-      {/* <div>
+      <div>
+        {/* <div>
         {
           //test การใส่รูปดึงรูป
         }
@@ -33,43 +34,48 @@ export default async function Page({ data }) {
           ))}
         </ul>
       </div> */}
-      <div>
-        <Image
-          src="https://gkywegpqvqbcrhpfosqh.supabase.co/storage/v1/object/public/imagePerform/24.png"
-          alt="image"
-          width={450}
-          height={300}
-        />
-      </div>
-      <div>
+
         <h1>Data from Supabase</h1>
         <ul>
           {districts.map((item) => (
             <div key={item.id}>
-              <div className="py-4 flex flex-row gap-2 ">
+              <div className="py-4  flex flex-row gap-2  w-650px">
                 <h1>{item.id} </h1>
-                <div className="">
-                  <p>{item.typeOf}</p>
-                  <p>{item.date}</p>
-                </div>
 
-                <div>
-                  {/* {item.image === null ? (
+                <div className="flex flex-row bg-slate-100 py-10 px-10">
+                  {item.image === null ? (
                     ""
                   ) : (
                     <Image
                       src={item.image}
                       alt="image"
-                      width={200}
+                      width={550}
                       height={200}
+                      className="object-cover px-4 mr-4"
                     />
-                  )} */}
-                  <h1>{item.mainTopic}</h1>
-                  <p>{item.details}</p>
-                  <div>
-                    <p>{item.subDistrict}</p>
-                    <p>{item.district}</p>
-                    <p className="bg-green-400 w-60">{item.result}</p>
+                  )}
+                  <div className="flex flex-col justify-center">
+                    <div className="my-4">
+                      <h4>{item.typeOf}</h4>
+                      <div className="flex flex-row gap-4 text-primary-500">
+                        <h3>{item.date}</h3>
+                        <p>{item.subDistrict}</p>
+                        <p>{item.district}</p>
+                      </div>
+                    </div>
+                    <div className="my-4">
+                      <h2 className="leading-10 mb-2 text-secondary-500">
+                        {item.mainTopic}
+                      </h2>
+                      <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
+                        {item.details}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="bg-green-400 w-fit py-2 px-4 rounded-md">
+                        {item.result}
+                      </p>
+                    </div>
                   </div>
                   {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
                 </div>

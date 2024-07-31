@@ -2,3 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*
+0.875 = 14 px
+1rem = 16 px
+1.5 = 24 px
+2 = 32
+3.5  56 px
+4 = 64
+
+*/
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgb(132, 132, 132);
+}
+
+h4{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #FF6A00;
+}

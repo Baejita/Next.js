@@ -14,7 +14,7 @@ function HeroSection() {
         alt="Mountains and forests with two cabins"
       />
 
-      <div className="relative z-10 text-center mt-[300px]">
+      <div className="relative z-10 text-center mt-[350px]">
         <h1 className="text-8xl text-primary-50  tracking-tight font-normal">
           ชริน วงศ์พันธ์เที่ยง
         </h1>
