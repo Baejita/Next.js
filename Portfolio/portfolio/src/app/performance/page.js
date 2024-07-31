@@ -39,40 +39,46 @@ export default async function Page({ data }) {
         <ul>
           {districts.map((item) => (
             <div key={item.id}>
-              <div className="py-4  flex flex-row gap-2  w-650px">
-                <h1>{item.id} </h1>
+              <div className="py-4  flex flex-row   w-650px">
+                {/* <h1>{item.id} </h1> */}
 
-                <div className="flex flex-row bg-slate-100 py-10 px-10">
+                <div className="flex flex-row bg-gradient-to-r from-slate-200 to-slate-100 pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
                   {item.image === null ? (
                     ""
                   ) : (
                     <Image
                       src={item.image}
                       alt="image"
-                      width={550}
+                      width={390}
                       height={200}
-                      className="object-cover px-4 mr-4"
+                      className="object-cover  mr-20"
                     />
                   )}
-                  <div className="flex flex-col justify-center">
-                    <div className="my-4">
+
+                  <div className="flex flex-col justify-center py-9">
+                    <div className="my-2">
                       <h4>{item.typeOf}</h4>
+                    </div>
+                    <div className="my-6 w-[350px]">
+                      <h2 className="leading-10 mb-4 text-secondary-500">
+                        {item.mainTopic}
+                      </h2>
+                      {/* <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
+                        {item.details}
+                      </p> */}
+
                       <div className="flex flex-row gap-4 text-primary-500">
-                        <h3>{item.date}</h3>
-                        <p>{item.subDistrict}</p>
+                        <h3 className="border-r-4 pr-4 border-secondary-200">
+                          {item.date}
+                        </h3>
+                        <p className="border-r-4 pr-4 border-secondary-200">
+                          {item.subDistrict}
+                        </p>
                         <p>{item.district}</p>
                       </div>
                     </div>
-                    <div className="my-4">
-                      <h2 className="leading-10 mb-2 text-secondary-500">
-                        {item.mainTopic}
-                      </h2>
-                      <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
-                        {item.details}
-                      </p>
-                    </div>
                     <div>
-                      <p className="bg-green-400 w-fit py-2 px-4 rounded-md">
+                      <p className="bg-green-500 w-fit py-2 px-4 rounded-md text-white tracking-wide ">
                         {item.result}
                       </p>
                     </div>
