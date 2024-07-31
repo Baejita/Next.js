@@ -16,7 +16,9 @@ export async function getPerformance(id) {
 export async function getPerformResult() {
   const { data, error } = await supabase
     .from("performResult")
-    .select("id,typeOf,date,district,subDistrict,mainTopic,details,image,result")
+    .select(
+      "id,typeOf,date,district,subDistrict,mainTopic,details,image,result"
+    )
     .order("id");
 
   if (error) {
@@ -25,7 +27,21 @@ export async function getPerformResult() {
   }
 
   return data;
-  
+}
+
+export async function getResult(id) {
+  const { data, error } = await supabase
+    .from("performResult")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error(error);
+    throw new Error("PerformResult could not be loaded");
+  }
+
+  return data;
 }
 
 export async function getTest() {
@@ -40,7 +56,6 @@ export async function getTest() {
   }
 
   return data;
-  
 }
 
 // export const getCabins = async function () {

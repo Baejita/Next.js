@@ -39,53 +39,55 @@ export default async function Page({ data }) {
         <ul>
           {districts.map((item) => (
             <div key={item.id}>
-              <div className="py-4  flex flex-row   w-650px">
-                {/* <h1>{item.id} </h1> */}
+              <Link href={"/performance/" + item.id}>
+                <div className="py-4  flex flex-row   w-650px">
+                  {/* <h1>{item.id} </h1> */}
 
-                <div className="flex flex-row bg-gradient-to-r from-slate-200 to-slate-100 pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
-                  {item.image === null ? (
-                    ""
-                  ) : (
-                    <Image
-                      src={item.image}
-                      alt="image"
-                      width={390}
-                      height={200}
-                      className="object-cover  mr-20"
-                    />
-                  )}
+                  <div className="flex flex-row bg-gradient-to-r from-slate-200 to-slate-100 pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
+                    {item.image === null ? (
+                      ""
+                    ) : (
+                      <Image
+                        src={item.image}
+                        alt="image"
+                        width={390}
+                        height={200}
+                        className="object-cover  mr-10"
+                      />
+                    )}
 
-                  <div className="flex flex-col justify-center py-9">
-                    <div className="my-2">
-                      <h4>{item.typeOf}</h4>
-                    </div>
-                    <div className="my-6 w-[350px]">
-                      <h2 className="leading-10 mb-4 text-secondary-500">
-                        {item.mainTopic}
-                      </h2>
-                      {/* <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
+                    <div className="flex flex-col justify-center py-9 ml-10">
+                      <div className="my-2">
+                        <h4>{item.typeOf}</h4>
+                      </div>
+                      <div className="my-6 w-[350px]">
+                        <h2 className="leading-10 mb-4 text-secondary-500 tracking-tight">
+                          {item.mainTopic}
+                        </h2>
+                        {/* <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
                         {item.details}
                       </p> */}
 
-                      <div className="flex flex-row gap-4 text-primary-500">
-                        <h3 className="border-r-4 pr-4 border-secondary-200">
-                          {item.date}
-                        </h3>
-                        <p className="border-r-4 pr-4 border-secondary-200">
-                          {item.subDistrict}
+                        <div className="flex flex-row gap-4 text-primary-500">
+                          <h3 className="border-r-4 pr-4 border-secondary-200">
+                            {item.date}
+                          </h3>
+                          <p className="border-r-4 pr-4 border-secondary-200">
+                            {item.subDistrict}
+                          </p>
+                          <p>{item.district}</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="bg-green-500 w-fit py-2 px-4 rounded-sm text-white tracking-wide ">
+                          {item.result}
                         </p>
-                        <p>{item.district}</p>
                       </div>
                     </div>
-                    <div>
-                      <p className="bg-green-500 w-fit py-2 px-4 rounded-md text-white tracking-wide ">
-                        {item.result}
-                      </p>
-                    </div>
+                    {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
                   </div>
-                  {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </ul>
