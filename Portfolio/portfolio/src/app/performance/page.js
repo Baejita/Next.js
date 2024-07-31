@@ -14,33 +14,12 @@ export default async function Page({ data }) {
   return (
     <>
       <div>
-        {/* <div>
-        {
-          //test การใส่รูปดึงรูป
-        }
-        {/* <ul key={test.id}>
-          {test.map((test) => (
-            <>
-              <p key={test.index}>{test.fullName}</p>
-              <Image
-                src={test.image}
-                alt="test"
-                width={200}
-                height={200}
-                key={test.id}
-                className="object-cover border-r border-primary-800"
-              />
-            </>
-          ))}
-        </ul>
-      </div> */}
-
         <h1>Data from Supabase</h1>
         <ul>
           {districts.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className=" bg-black">
               <Link href={"/performance/" + item.id}>
-                <div className="py-4  flex flex-row   w-650px">
+                <div className="py-4 grid ">
                   {/* <h1>{item.id} </h1> */}
 
                   <div className="flex flex-row bg-gradient-to-r from-slate-200 to-slate-100 pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
