@@ -2,76 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import doubleQ from "/src/app/image/quote_4990659.png";
 import Card from "../components/Card";
-import { getPerformResult, getTest } from "../services/apiPerformance";
+import { getPerformResult, getSAPA, getTest } from "../services/apiPerformance";
+import { submitForm } from "../services/action";
+import { Children } from "react";
 
 export const revalidate = 0; //ทำให้รีเฟชตลอด
 export default async function Page({ data }) {
   const districts = await getPerformResult();
   //const test = await getTest()
 
-  const test = await getTest();
-
   return (
     <>
-      <div>
-        <h1>Data from Supabase</h1>
-        <ul>
-          {districts.map((item) => (
-            <div key={item.id} className=" bg-black">
-              <Link href={"/performance/" + item.id}>
-                <div className="py-4 grid ">
-                  {/* <h1>{item.id} </h1> */}
-
-                  <div className="flex flex-row bg-gradient-to-r from-slate-200 to-slate-100 pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
-                    {item.image === null ? (
-                      ""
-                    ) : (
-                      <Image
-                        src={item.image}
-                        alt="image"
-                        width={390}
-                        height={200}
-                        className="object-cover  mr-10"
-                      />
-                    )}
-
-                    <div className="flex flex-col justify-center py-9 ml-10">
-                      <div className="my-2">
-                        <h4>{item.typeOf}</h4>
-                      </div>
-                      <div className="my-6 w-[350px]">
-                        <h2 className="leading-10 mb-4 text-secondary-500 tracking-tight">
-                          {item.mainTopic}
-                        </h2>
-                        {/* <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
-                        {item.details}
-                      </p> */}
-
-                        <div className="flex flex-row gap-4 text-primary-500">
-                          <h3 className="border-r-4 pr-4 border-secondary-200">
-                            {item.date}
-                          </h3>
-                          <p className="border-r-4 pr-4 border-secondary-200">
-                            {item.subDistrict}
-                          </p>
-                          <p>{item.district}</p>
-                        </div>
-                      </div>
-                      <div>
-                        <p className="bg-green-500 w-fit py-2 px-4 rounded-sm text-white tracking-wide ">
-                          {item.result}
-                        </p>
-                      </div>
-                    </div>
-                    {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
-                  </div>
-                </div>
-              </Link>
-            </div>
-          ))}
-        </ul>
-      </div>
-
       <div className="bg-white px-40 py-20 ">
         <h1 className="text-4xl mb-5 mt-5 text-secondary-400 font-semibold">
           ผลการดำเนินงาน
@@ -105,11 +46,9 @@ export default async function Page({ data }) {
             </svg>
           </span>
         </p>
-        <div className="flex mb-10">
-          <Card />
-          <Card />
-          <Card />
-        </div>
+        {/* <div className="flex mb-10">
+          <h1>{resultFromSapa.date}</h1>
+        </div> */}
         <div className="flex justify-center">
           <Link
             href="/performance/allResult"
@@ -119,6 +58,70 @@ export default async function Page({ data }) {
           </Link>
         </div>
       </div>
+
+      <div>
+        <Card>{Children}</Card>
+      </div>
+
+      <ul>
+        {districts.map((item) => (
+          <div key={item.id} className=" bg-primary-500">
+            <Link href={"/performance/" + item.id}>
+              <div className="pb-2 grid ">
+                {/* <h1>{item.id} </h1> */}
+
+                <div className="flex flex-row bg-white pr-10 hover:scale-105 hover:drop-shadow-lg transition-all">
+                  {item.image === null ? (
+                    ""
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt="image"
+                      width={390}
+                      height={200}
+                      className="object-cover  mr-10"
+                    />
+                  )}
+
+                  <div className="flex flex-col justify-center py-9 ml-10 ">
+                    <div className="my-2">
+                      <h4>{item.typeOf}</h4>
+                    </div>
+                    <div className="my-6 w-[650px]">
+                      <h2 className="leading-10 mb-4 text-secondary-500 tracking-tight">
+                        {item.mainTopic}
+                      </h2>
+                      {/* <p className="w-[550px] text-secondary-500 tracking-wide mb-4">
+                        {item.details}
+                      </p> */}
+
+                      <div className="flex flex-row gap-4 text-primary-500">
+                        <h3 className="border-r-4 pr-4 border-secondary-200">
+                          {item.date}
+                        </h3>
+                        <p className="border-r-4 pr-4 border-secondary-200">
+                          {item.subDistrict}
+                        </p>
+                        <p>{item.district}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="bg-green-500 w-fit py-2 px-4 rounded-sm text-white tracking-wide ">
+                        {item.result}
+                      </p>
+                    </div>
+                  </div>
+                  {/* {item.image === null ? " ": <Image src={item.image} width={200} height={200}/>} */}
+                </div>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </ul>
+      <form action={submitForm} className=" font-medium text-xl my-10">
+        Email <input name="email" />
+        <button>Submit</button>
+      </form>
     </>
   );
 }

@@ -1,17 +1,17 @@
 import { supabase } from "./supabase";
 
-export async function getPerformance(id) {
-  const { data, error } = await supabase
-    .from("performance")
-    .select("*")
-    .eq("id", id)
-    .single();
+// export async function getPerformance(id) {
+//   const { data, error } = await supabase
+//     .from("performance")
+//     .select("*")
+//     .eq("id", id)
+//     .single();
 
-  if (error) {
-    console.error(error);
-  }
-  return data;
-}
+//   if (error) {
+//     console.error(error);
+//   }
+//   return data;
+// }
 
 export async function getPerformResult() {
   const { data, error } = await supabase
@@ -39,6 +39,20 @@ export async function getResult(id) {
   if (error) {
     console.error(error);
     throw new Error("PerformResult could not be loaded");
+  }
+
+  return data;
+}
+
+export async function getSAPA() {
+  const { data, error } = await supabase
+    .from("SapaAndGummathikarn")
+    .select("date,mainTopic,details, hightligh,image,district")
+    .order("id");
+
+  if (error) {
+    console.error(error);
+    throw new Error("SAPA could not be loaded");
   }
 
   return data;

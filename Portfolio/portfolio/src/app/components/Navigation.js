@@ -7,7 +7,7 @@ export default async function Navigation() {
         <li>
           <Link
             href="/"
-            className="hover:text-secondary-50  hover:bg-primary-500 hover:border-b-primary-500 transition-colors px-2"
+            className="hover:text-white  hover:bg-primary-500 hover:border-b-primary-500 transition-colors px-2"
           >
             หน้าหลัก
           </Link>
@@ -15,7 +15,7 @@ export default async function Navigation() {
         <li>
           <Link
             href="/performance"
-            className="hover:text-secondary-50 hover:bg-primary-500 transition-colors px-2"
+            className="hover:text-white hover:bg-primary-500 transition-colors px-2"
           >
             ผลการดำเนินงาน
           </Link>
@@ -24,7 +24,7 @@ export default async function Navigation() {
         <li>
           <Link
             href="/applyforMember"
-            className="hover:text-secondary-50 hover:bg-primary-500 transition-colors flex items-center gap-4 px-2"
+            className="hover:text-white hover:bg-primary-500 transition-colors flex items-center gap-4 px-2"
           >
             <span>สมัครสมาชิกพรรค</span>
           </Link>
@@ -33,7 +33,7 @@ export default async function Navigation() {
         <li>
           <Link
             href="/asaMFP"
-            className="hover:text-secondary-50 hover:bg-primary-500 transition-colors px-2"
+            className="hover:text-white hover:bg-primary-500 transition-colors px-2"
           >
             อาสาก้าวไกลอยุธยา
           </Link>

@@ -26,7 +26,7 @@ export default async function Page({ params }) {
                 {result.mainTopic}
               </h2>
 
-              <div className="flex flex-row gap-4 text-primary-500">
+              <div className="flex flex-row gap-4 text-primary-500 ">
                 <h3 className="border-r-4 pr-4 border-secondary-200">
                   {result.date}
                 </h3>
