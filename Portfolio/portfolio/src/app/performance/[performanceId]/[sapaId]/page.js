@@ -1,29 +1,25 @@
-import { getPerformResult, getResult } from "@/app/services/apiPerformance";
+import { getSAPAbyID } from "@/app/services/apiPerformance";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page({ params }) {
   // Accessing the dynamic route parameter "id"
-  const result = await getResult(params.performanceId);
-  const { id, typeOf, date, image, district, subDistrict, mainTopic, details } =
-    result;
+  const result = await getSAPAbyID(params.sapaId);
+  const { id, date, mainTopic, details, hightlight, image, district } = result;
 
   return (
     <div>
       <ul>
         <div className="py-4   ">
-          {/* <h1>{item.id} </h1> */}
-
           <div
             className="flex flex-col bg-gradient-to-r from-white to-slate-100 pt-10 align-content-center "
             key={id}
           >
             <div className="my-2 ml-10">
-              <h4>{result.typeOf}</h4>
-
               <h2 className="leading-10 mb-4 text-secondary-500 tracking-tight">
                 {result.mainTopic}
               </h2>
+              <h1>{result.hightlight}</h1>
 
               <div className="flex flex-row gap-4 text-primary-500 ">
                 <h3 className="border-r-4 pr-4 border-secondary-200">
@@ -52,7 +48,7 @@ export default async function Page({ params }) {
             <div className="flex flex-col justify-center py-9 ml-60 ">
               <div className="my-6 pr-60">
                 <p className=" text-secondary-500 tracking-wide mb-4">
-                  {details}
+                  {result.details}
                 </p>
               </div>
 

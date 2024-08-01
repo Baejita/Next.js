@@ -1,12 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
-import doubleQ from "/src/app/image/quote_4990659.png";
-import Card from "../components/Card";
-import { getPerformResult, getSAPA, getTest } from "../services/apiPerformance";
 import { submitForm } from "../services/action";
-import { Children } from "react";
 import TitlePerForm from "../components/TitlePerForm";
 import AllListOfPerform from "../components/AllListOfPerform";
+import Highlight from "../components/Higlight";
 
 export const revalidate = 0; //ทำให้รีเฟชตลอด
 export default async function Page({ data }) {
@@ -15,6 +10,8 @@ export default async function Page({ data }) {
   return (
     <>
       <TitlePerForm />
+
+      <Highlight />
 
       <div>{/* <Card>{Children}</Card> */}</div>
 

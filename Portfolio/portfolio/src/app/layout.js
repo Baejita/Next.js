@@ -20,6 +20,8 @@ import Header from "./components/Header";
 
 import "./globals.css";
 import HeroSection from "./components/HeroSection";
+import { Suspense } from "react";
+import Spinner from "./components/Spinner";
 
 // const kanit = Kanit({
 //   subsets: ["thai"],
@@ -36,7 +38,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${myFont.className} bg-slate-50`}>
         <Header />
-        <main className="max-w-7xl  mx-auto w-full">{children}</main>
+        <Suspense fallback={<Spinner />}>
+          <main className="max-w-7xl  mx-auto w-full">{children}</main>
+        </Suspense>
       </body>
     </html>
   );

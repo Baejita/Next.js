@@ -29,6 +29,7 @@ export async function getPerformResult() {
   return data;
 }
 
+//เลือกแบบตัวเดียว
 export async function getResult(id) {
   const { data, error } = await supabase
     .from("performResult")
@@ -44,11 +45,28 @@ export async function getResult(id) {
   return data;
 }
 
+//เลือกแบบหมด
 export async function getSAPA() {
   const { data, error } = await supabase
     .from("SapaAndGummathikarn")
-    .select("date,mainTopic,details, hightligh,image,district")
+    .select("id,date,mainTopic,details, hightlight,image,district")
     .order("id");
+
+  if (error) {
+    console.error(error);
+    throw new Error("SAPA could not be loaded");
+  }
+
+  return data;
+}
+
+//เลือกแบบตัวเดียว
+export async function getSAPAbyID(id) {
+  const { data, error } = await supabase
+    .from("SapaAndGummathikarn")
+    .select("*")
+    .eq("id", id)
+    .single();
 
   if (error) {
     console.error(error);
