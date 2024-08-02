@@ -25,7 +25,7 @@ export const TestClientFetch = () => {
       <h2>This is a client component</h2>
       <ul>
         {users.map((user) => (
-          <li key={user.id}>{user.number}</li>
+          <li key={user.id}>{user.fullName}</li>
         ))}
       </ul>
     </div>

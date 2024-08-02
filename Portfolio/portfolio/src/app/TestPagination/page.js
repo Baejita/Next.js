@@ -1,32 +1,41 @@
 "use client";
 
-import { createClient } from "@supabase/client";
 import { useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
 
-export default function UserTest() {
-  const supabase = createClient();
+export default function page() {
   const [users, setUsers] = useState([]);
 
   const fetchUser = async () => {
-    let { data: Test, error } = await supabase.from("Test").select("*");
-
+    let { data, error } = await supabase.from("Test").select("*");
+    console.log({ data });
     if (error || !data) {
       console.log("error", error);
     }
 
-    setUsers(Test || []);
+    setUsers(data);
   };
   useEffect(() => {
-    fetchUser();
+    fetchUser()
+      .then((data) => {
+        setUsers(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching users", error);
+      });
   }, []);
 
   return (
-    <div>
-      {users.map((user) => (
-        <>
-          <h1>{user.fullName}</h1>
-        </>
-      ))}
-    </div>
+    <>
+      <h1>Test</h1>
+      <div>
+        {users &&
+          users.map((user) => (
+            <div key={user.id}>
+              <p>{fullName}</p>
+            </div>
+          ))}
+      </div>
+    </>
   );
 }

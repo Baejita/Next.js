@@ -79,7 +79,7 @@ export async function getSAPAbyID(id) {
 export async function getTest() {
   const { data, error } = await supabase
     .from("Test")
-    .select("fullName,number,image")
+    .select("id,fullName,number,image")
     .order("id");
 
   if (error) {
