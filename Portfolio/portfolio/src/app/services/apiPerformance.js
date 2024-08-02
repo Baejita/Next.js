@@ -90,6 +90,20 @@ export async function getTest() {
   return data;
 }
 
+  export async function getFakedData() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    try {
+      const allPosts = await res.json();
+      return allPosts;
+      
+    } catch (error) {
+      
+    }
+  }
+
 // export const getCabins = async function () {
 //   const { data, error } = await supabase
 //     .from("cabins")

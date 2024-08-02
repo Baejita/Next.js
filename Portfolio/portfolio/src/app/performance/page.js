@@ -14,7 +14,6 @@ export default async function Page({ data }) {
       <Highlight />
 
       <div>{/* <Card>{Children}</Card> */}</div>
-
       <AllListOfPerform />
       <form action={submitForm} className=" font-medium text-xl my-10">
         Email <input name="email" />
