@@ -1,26 +1,33 @@
 "use client";
-import { useEffect, useState } from "react";
-import { supabase } from "../services/supabase";
+import React, { useState, useEffect } from "react";
+import { getTest } from "../services/apiPerformance";
 
-function page() {
-  const [testData, setTestData] = useState([]);
+function Page() {
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      let { data, error } = await supabase.from("Test").select("*");
-
-      console.log(data);
-      setTestData(data);
+    async function getDataFromTest() {
+      try {
+        const result = await getTest();
+        console.log(result);
+        setData(result); // Assuming result is an array of data objects
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
-    fetchData();
+    getDataFromTest();
   }, []);
+
   return (
     <div>
-      {testData.map((test) => (
-        <p>{test.fullName}</p>
+      <h1>Test</h1>
+      <p>This is a test page.</p>
+      {data.map((item, index) => (
+        <p key={index}>{item.fullName}</p>
       ))}
+      {/* Other components or logic */}
     </div>
   );
 }
 
-export default page;
+export default Page;
