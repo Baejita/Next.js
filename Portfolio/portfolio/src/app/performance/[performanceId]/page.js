@@ -9,7 +9,7 @@ export default async function Page({ params }) {
     result;
 
   return (
-    <div>
+    <>
       <ul>
         <div className="py-4   ">
           {/* <h1>{item.id} </h1> */}
@@ -72,6 +72,6 @@ export default async function Page({ params }) {
           </div>
         </div>
       </ul>
-    </div>
+    </>
   );
 }

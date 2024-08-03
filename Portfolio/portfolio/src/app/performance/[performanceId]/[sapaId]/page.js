@@ -8,7 +8,7 @@ export default async function Page({ params }) {
   const { id, date, mainTopic, details, hightlight, image, district } = result;
 
   return (
-    <div>
+    <>
       <ul>
         <div className="py-4   ">
           <div
@@ -68,6 +68,6 @@ export default async function Page({ params }) {
           </div>
         </div>
       </ul>
-    </div>
+    </>
   );
 }
