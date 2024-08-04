@@ -1,33 +1,43 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { getTest } from "../services/apiPerformance";
 
-function Page() {
-  const [data, setData] = useState([]);
+import { useEffect, useState } from "react";
+import { supabase } from "../services/supabase";
+import { createBrowserClient } from "@supabase/ssr";
 
-  useEffect(() => {
-    async function getDataFromTest() {
-      try {
-        const result = await getTest();
-        console.log(result);
-        setData(result); // Assuming result is an array of data objects
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
+function page() {
+  const [dataPage, setDataPage] = useState([]);
+  async function getfetchPerfrom() {
+    const { data, error } = await supabase
+      .from("performResult")
+      .select(
+        "id,typeOf,date,district,subDistrict,mainTopic,details,image,result"
+      )
+      .range(100, 120)
+      .order("id");
+
+    if (error) {
+      console.error(error);
+      throw new Error("PerformResult could not be loaded");
     }
-    getDataFromTest();
+    return data;
+  }
+  useEffect(() => {
+    getfetchPerfrom().then((data) => {
+      setDataPage(data);
+    });
   }, []);
 
   return (
     <div>
-      <h1>Test</h1>
-      <p>This is a test page.</p>
-      {data.map((item, index) => (
-        <p key={index}>{item.fullName}</p>
-      ))}
-      {/* Other components or logic */}
+      <h1>Items</h1>
+      <ul>
+        {dataPage.map((item) => (
+          <li key={item.id}>{item.date}</li>
+        ))}
+      </ul>
+      <button>Load More</button>
     </div>
   );
 }
 
-export default Page;
+export default page;

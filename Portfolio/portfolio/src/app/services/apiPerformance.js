@@ -19,6 +19,7 @@ export async function getPerformResult() {
     .select(
       "id,typeOf,date,district,subDistrict,mainTopic,details,image,result"
     )
+    .range(100, 120)
     .order("id");
 
   if (error) {
@@ -90,19 +91,16 @@ export async function getTest() {
   return data;
 }
 
-  export async function getFakedData() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-    try {
-      const allPosts = await res.json();
-      return allPosts;
-      
-    } catch (error) {
-      
-    }
+export async function getFakedData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
   }
+  try {
+    const allPosts = await res.json();
+    return allPosts;
+  } catch (error) {}
+}
 
 // export const getCabins = async function () {
 //   const { data, error } = await supabase
