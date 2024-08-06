@@ -52,9 +52,10 @@ export async function getSAPA() {
     .from("SapaAndGummathikarn")
     .select("id,date,mainTopic,details, hightlight,image,district")
     .order("id");
-
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   if (error) {
     console.error(error);
+
     throw new Error("SAPA could not be loaded");
   }
 

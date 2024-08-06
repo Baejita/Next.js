@@ -38,9 +38,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${myFont.className} bg-slate-50`}>
         <Header />
-        <Suspense fallback={<Spinner />}>
-          <main className="max-w-7xl  mx-auto w-full">{children}</main>
-        </Suspense>
+
+        <main className="max-w-7xl  mx-auto w-full">{children}</main>
       </body>
     </html>
   );
