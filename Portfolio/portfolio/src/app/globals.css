@@ -111,8 +111,8 @@ p{
   border-radius: 6px;
   padding: 3rem 4rem;
   margin: 5rem auto;
-  background-color: #e9e9e9;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px 0 rgba(230, 133, 6, 0.4);
 }
 
 #auth-form img {
@@ -173,7 +173,7 @@ p{
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #a21d4c;
+  color: #d2101a;
 }
 
 #auth-header {

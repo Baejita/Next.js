@@ -20,7 +20,9 @@ export default function AuthForm() {
       {formState.errors && (
         <ul id="form-errors">
           {Object.keys(formState.errors).map((error) => (
-            <li key={error}>{formState.errors[error]}</li>
+            <li className="pt-6" key={error}>
+              {formState.errors[error]}
+            </li>
           ))}
         </ul>
       )}
