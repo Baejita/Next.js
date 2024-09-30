@@ -5,8 +5,11 @@ export default function Navigation() {
   const path = usePathname();
 
   return (
-    <nav className="z-10 text-xl text-primary-500 border-b-2">
-      <ul className="flex gap-10 items-center ">
+    <nav
+      className="z-10 text-sm text-primary-500 border-b-2 md:text-lg hidden sm:flex
+    "
+    >
+      <ul className="flex gap-2 sm:gap-4 items-center ">
         <li>
           <Link
             href="/contactUs"

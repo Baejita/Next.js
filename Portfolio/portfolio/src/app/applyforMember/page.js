@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import Image from "next/image";
 import bg from "../../../src/app/image/พี่ปูในสภา.jpeg";
+
 function page() {
   const linkMFP =
     "https://accounts.peoplespartythailand.org/account/register?utm_source=landing&utm_medium=web&utm_campaign=moveon";
