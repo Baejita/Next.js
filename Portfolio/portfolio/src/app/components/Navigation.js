@@ -61,6 +61,19 @@ export default function Navigation() {
               อาสาก้าวไกลอยุธยา
             </Link>
           </li>
+
+          <li>
+            <Link
+              href="/authPage"
+              className={
+                path.startsWith("/authPage")
+                  ? "hover:text-white hover:bg-primary-500 transition-colors bg-primary-500 px-2  visited:text-white               "
+                  : "text-primary-500 hover:text-white hover:bg-primary-500 transition-colors px-2                visited:text-primary-500"
+              }
+            >
+              ลงทะเบียน
+            </Link>
+          </li>
         </ul>
       </nav>
     </>
