@@ -20,7 +20,7 @@ async function Higlight() {
                 className="object-cover rounded-t-lg"
               />
 
-              <div className="p-5 bg-slate-200 flex flex-col justify-between h-[300px]">
+              <div className="p-5 bg-slate-50 flex flex-col justify-between h-[300px]">
                 <h5 className="mb-2 text-2xl font-medium tracking-tight text-secondary-700 dark:text-white">
                   {item.mainTopic}
                 </h5>
