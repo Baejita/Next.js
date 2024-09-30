@@ -3,7 +3,7 @@ import Link from "next/link";
 import logo from "../../../src/app/image/logo.png";
 function Logo() {
   return (
-    <Link href="/" className="flex items-center gap-4 z-10">
+    <Link href="/" className="hidden sm:flex items-center gap-4 z-10  ">
       {/* <Image src="/logo.png" height="60" width="60" alt="The Wild Oasis logo" /> */}
 
       <Image

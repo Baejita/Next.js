@@ -6,7 +6,6 @@ import Link from "next/link";
 
 import line from "../../../src/app/image/Line.jpg";
 import titok from "../../../src/app/image/tiktok.jpg";
-import NavbarCharin from "../components/Navbar";
 
 const link = [
   "https://www.facebook.com/profile.php?id=100089996004006",
@@ -17,7 +16,6 @@ const link = [
 function page() {
   return (
     <>
-      <NavbarCharin />
       <div className="flex justify-center align-middle mx-20 gap-4 mt-10 flex-col sm:flex-row  ">
         <div>
           <Card className="w-[300px] py-4 hover:scale-105">
