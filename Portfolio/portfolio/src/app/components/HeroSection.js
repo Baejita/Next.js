@@ -11,7 +11,7 @@ function HeroSection() {
         placeholder="blur"
         className="object-cover "
         quality={100}
-        alt="Mountains and forests with two cabins"
+        alt="charin wongpantieng"
       />
 
       <div className="relative z-10 text-center mt-[350px]">
@@ -19,7 +19,7 @@ function HeroSection() {
           ชริน วงศ์พันธ์เที่ยง
         </h1>
         <p className=" bg-gradient-to-l from-primary-500 to-tertiary-500 mb-10 text-4xl inline-block  text-transparent bg-clip-text">
-          สส.เขต 2 พระนครศรีอยุธยา พรรคก้าวไกล
+          สส.เขต 2 พระนครศรีอยุธยา พรรคประชาชน
         </p>
         <div>
           <Link
