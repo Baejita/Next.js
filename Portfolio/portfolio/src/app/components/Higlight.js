@@ -9,7 +9,7 @@ async function Higlight() {
     <div className="grid grid-cols-3 gap-4">
       {sapa.map((item) => (
         <div key={item.id} className="mx-2 my-4">
-          <Link href={"/performance/sapald/" + item.id} passHref>
+          <Link href={"/performance/sapald/" + item.id}>
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg hover:drop-shadow-2xl shadow hover:scale-105 dark:bg-gray-800 dark:border-gray-700 transition-transform h-[600px]">
               <Image
                 src={item.image}

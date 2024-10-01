@@ -4,10 +4,16 @@ import AllListOfPerform from "../components/AllListOfPerform";
 import Highlight from "../components/Higlight";
 import Spinner from "../components/Spinner";
 import { Suspense } from "react";
+import { verifyAuth } from "../../../lib/auth";
+import { redirect } from "next/navigation";
 
 export const revalidate = 0; //ทำให้รีเฟชตลอด
 export default async function Page({ data }) {
-  //const test = await getTest()
+  const result = await verifyAuth();
+
+  if (!result.user) {
+    return redirect("/authPage");
+  }
 
   return (
     <>
